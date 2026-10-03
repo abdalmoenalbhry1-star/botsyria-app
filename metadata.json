@@ -1,0 +1,8 @@
+{
+  "name": "Remix تطبيق مهام ودعم تلجرام",
+  "description": "تطبيق Telegram Mini App تفاعلي للمهام والمكافآت والدعم الفني بالوضع المظلم",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
