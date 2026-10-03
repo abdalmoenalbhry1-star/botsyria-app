@@ -19,8 +19,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname = process.cwd();
 
 // ----------------------------------------------------------------------
 // 1. SQLite Database Initialization (Zero fake data, shared with bot.py)
@@ -968,7 +967,7 @@ app.post("/api/telegram-webhook/:token", async (req, res) => {
 });
 
 // --- Server Startup ---
-const PORT = 3000;
+const PORT = Number(process.env.PORT) || 3000;
 if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, 'dist')));
     app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'dist', 'index.html')));
