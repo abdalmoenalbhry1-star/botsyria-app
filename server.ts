@@ -99,7 +99,7 @@ const db = initializeFirestore(firebaseApp, {
     experimentalAutoDetectLongPolling: true,
 }, firebaseConfig.firestoreDatabaseId);
 
-const app = express();
+export const app = express();
 app.use(express.json({ limit: '10mb' }));
 
 const authenticate = (req: express.Request, res: express.Response, next: express.NextFunction) => next();
@@ -968,7 +968,10 @@ app.post("/api/telegram-webhook/:token", async (req, res) => {
 
 // --- Server Startup ---
 const PORT = Number(process.env.PORT) || 3000;
-if (process.env.NODE_ENV === "production") {
+
+if (process.env.VERCEL) {
+    // Vercel runs Express as a serverless function.
+} else if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, 'dist')));
     app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'dist', 'index.html')));
     app.listen(PORT, "0.0.0.0", () => console.log(`Server running on port ${PORT}`));
@@ -980,3 +983,5 @@ if (process.env.NODE_ENV === "production") {
         });
     });
 }
+
+export default app;
