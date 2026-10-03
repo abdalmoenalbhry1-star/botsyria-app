@@ -24,7 +24,7 @@ const __dirname = process.cwd();
 // ----------------------------------------------------------------------
 // 1. SQLite Database Initialization (Zero fake data, shared with bot.py)
 // ----------------------------------------------------------------------
-const DB_FILE = path.join(process.cwd(), "database.db");
+const DB_FILE = process.env.VERCEL ? "/tmp/database.db" : path.join(process.cwd(), "database.db");
 const sqlite = new DatabaseSync(DB_FILE);
 
 // Ensure all tables exist in database.db
