@@ -19,7 +19,7 @@ import { getTelegramUser } from './telegram';
 
 export const BOT_URL = 'https://t.me/BotSyria_2026_bot';
 export const OFFICIAL_REFERRAL_URL = 'https://t.me/BotSyria_2026_bot';
-export const API_URL = "https://christopher-jungle-offline-walter.trycloudflare.com";
+export const API_URL = "";
 
 // Memory Cache for User Profile (keeps synchronous functions compatible without LocalStorage)
 let currentProfileCache: UserProfileData | null = null;
