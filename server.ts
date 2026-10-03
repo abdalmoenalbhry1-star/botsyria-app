@@ -89,10 +89,18 @@ console.log("✅ [Server SQLite] database.db connected and schemas verified!");
 // ----------------------------------------------------------------------
 // 2. Firebase Applet Config (Optional/Live sync)
 // ----------------------------------------------------------------------
-const configPath = fs.existsSync(path.join(__dirname, "firebase-applet-config.json")) 
-    ? path.join(__dirname, "firebase-applet-config.json") 
-    : path.join(process.cwd(), "firebase-applet-config.json");
-const firebaseConfig = JSON.parse(fs.readFileSync(configPath, "utf8"));
+const firebaseConfig = {
+  "projectId": "leafy-deck-3ghtt",
+  "appId": "1:106526751094:web:6aaf5e52114e01a7bc6257",
+  "apiKey": "AIzaSyCfgwpc813eX5GE0YphEXoayj6vPSNXiYo",
+  "authDomain": "leafy-deck-3ghtt.firebaseapp.com",
+  "firestoreDatabaseId": "ai-studio-remix-dd653631-401c-4b33-8b33-05a1011b5920",
+  "storageBucket": "leafy-deck-3ghtt.firebasestorage.app",
+  "messagingSenderId": "106526751094",
+  "measurementId": "",
+  "oAuthClientId": "106526751094-353u0l03g836mauj9c9a184nuc1mvj9r.apps.googleusercontent.com",
+  "recaptchaSiteKey": ""
+};
 
 const firebaseApp = initializeApp(firebaseConfig);
 const db = initializeFirestore(firebaseApp, {
